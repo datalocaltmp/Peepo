@@ -1,0 +1,690 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D75B07E52F219EDC00C85EC5 /* Peepo Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = D75B07E42F219EDC00C85EC5 /* Peepo Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D75B07EA2F219EDC00C85EC5 /* PeepoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75B07E92F219EDC00C85EC5 /* PeepoApp.swift */; };
+		D75B07EC2F219EDC00C85EC5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75B07EB2F219EDC00C85EC5 /* ContentView.swift */; };
+		D75B07EE2F219EDE00C85EC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D75B07ED2F219EDE00C85EC5 /* Assets.xcassets */; };
+		D75B07F12F219EDE00C85EC5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D75B07F02F219EDE00C85EC5 /* Preview Assets.xcassets */; };
+		D75B07FB2F219EDE00C85EC5 /* Peepo_Watch_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75B07FA2F219EDE00C85EC5 /* Peepo_Watch_AppTests.swift */; };
+		D75B08052F219EDE00C85EC5 /* Peepo_Watch_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75B08042F219EDE00C85EC5 /* Peepo_Watch_AppUITests.swift */; };
+		D75B08072F219EDE00C85EC5 /* Peepo_Watch_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75B08062F219EDE00C85EC5 /* Peepo_Watch_AppUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D75B07E62F219EDC00C85EC5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D75B07D82F219EDC00C85EC5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D75B07E32F219EDC00C85EC5;
+			remoteInfo = "Peepo Watch App";
+		};
+		D75B07F72F219EDE00C85EC5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D75B07D82F219EDC00C85EC5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D75B07E32F219EDC00C85EC5;
+			remoteInfo = "Peepo Watch App";
+		};
+		D75B08012F219EDE00C85EC5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D75B07D82F219EDC00C85EC5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D75B07E32F219EDC00C85EC5;
+			remoteInfo = "Peepo Watch App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D75B080D2F219EDE00C85EC5 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				D75B07E52F219EDC00C85EC5 /* Peepo Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		D75B07DE2F219EDC00C85EC5 /* Peepo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Peepo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D75B07E42F219EDC00C85EC5 /* Peepo Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Peepo Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D75B07E92F219EDC00C85EC5 /* PeepoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeepoApp.swift; sourceTree = "<group>"; };
+		D75B07EB2F219EDC00C85EC5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D75B07ED2F219EDE00C85EC5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D75B07F02F219EDE00C85EC5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D75B07F62F219EDE00C85EC5 /* Peepo Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Peepo Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D75B07FA2F219EDE00C85EC5 /* Peepo_Watch_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Peepo_Watch_AppTests.swift; sourceTree = "<group>"; };
+		D75B08002F219EDE00C85EC5 /* Peepo Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Peepo Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D75B08042F219EDE00C85EC5 /* Peepo_Watch_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Peepo_Watch_AppUITests.swift; sourceTree = "<group>"; };
+		D75B08062F219EDE00C85EC5 /* Peepo_Watch_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Peepo_Watch_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D75B07E12F219EDC00C85EC5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D75B07F32F219EDE00C85EC5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D75B07FD2F219EDE00C85EC5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D75B07D72F219EDC00C85EC5 = {
+			isa = PBXGroup;
+			children = (
+				D75B07E82F219EDC00C85EC5 /* Peepo Watch App */,
+				D75B07F92F219EDE00C85EC5 /* Peepo Watch AppTests */,
+				D75B08032F219EDE00C85EC5 /* Peepo Watch AppUITests */,
+				D75B07DF2F219EDC00C85EC5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D75B07DF2F219EDC00C85EC5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D75B07DE2F219EDC00C85EC5 /* Peepo.app */,
+				D75B07E42F219EDC00C85EC5 /* Peepo Watch App.app */,
+				D75B07F62F219EDE00C85EC5 /* Peepo Watch AppTests.xctest */,
+				D75B08002F219EDE00C85EC5 /* Peepo Watch AppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D75B07E82F219EDC00C85EC5 /* Peepo Watch App */ = {
+			isa = PBXGroup;
+			children = (
+				D75B07E92F219EDC00C85EC5 /* PeepoApp.swift */,
+				D75B07EB2F219EDC00C85EC5 /* ContentView.swift */,
+				D75B07ED2F219EDE00C85EC5 /* Assets.xcassets */,
+				D75B07EF2F219EDE00C85EC5 /* Preview Content */,
+			);
+			path = "Peepo Watch App";
+			sourceTree = "<group>";
+		};
+		D75B07EF2F219EDE00C85EC5 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				D75B07F02F219EDE00C85EC5 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D75B07F92F219EDE00C85EC5 /* Peepo Watch AppTests */ = {
+			isa = PBXGroup;
+			children = (
+				D75B07FA2F219EDE00C85EC5 /* Peepo_Watch_AppTests.swift */,
+			);
+			path = "Peepo Watch AppTests";
+			sourceTree = "<group>";
+		};
+		D75B08032F219EDE00C85EC5 /* Peepo Watch AppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D75B08042F219EDE00C85EC5 /* Peepo_Watch_AppUITests.swift */,
+				D75B08062F219EDE00C85EC5 /* Peepo_Watch_AppUITestsLaunchTests.swift */,
+			);
+			path = "Peepo Watch AppUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D75B07DD2F219EDC00C85EC5 /* Peepo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D75B080E2F219EDE00C85EC5 /* Build configuration list for PBXNativeTarget "Peepo" */;
+			buildPhases = (
+				D75B07DC2F219EDC00C85EC5 /* Resources */,
+				D75B080D2F219EDE00C85EC5 /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D75B07E72F219EDC00C85EC5 /* PBXTargetDependency */,
+			);
+			name = Peepo;
+			productName = Peepo;
+			productReference = D75B07DE2F219EDC00C85EC5 /* Peepo.app */;
+			productType = "com.apple.product-type.application.watchapp2-container";
+		};
+		D75B07E32F219EDC00C85EC5 /* Peepo Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D75B080A2F219EDE00C85EC5 /* Build configuration list for PBXNativeTarget "Peepo Watch App" */;
+			buildPhases = (
+				D75B07E02F219EDC00C85EC5 /* Sources */,
+				D75B07E12F219EDC00C85EC5 /* Frameworks */,
+				D75B07E22F219EDC00C85EC5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Peepo Watch App";
+			productName = "Peepo Watch App";
+			productReference = D75B07E42F219EDC00C85EC5 /* Peepo Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D75B07F52F219EDE00C85EC5 /* Peepo Watch AppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D75B08112F219EDE00C85EC5 /* Build configuration list for PBXNativeTarget "Peepo Watch AppTests" */;
+			buildPhases = (
+				D75B07F22F219EDE00C85EC5 /* Sources */,
+				D75B07F32F219EDE00C85EC5 /* Frameworks */,
+				D75B07F42F219EDE00C85EC5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D75B07F82F219EDE00C85EC5 /* PBXTargetDependency */,
+			);
+			name = "Peepo Watch AppTests";
+			productName = "Peepo Watch AppTests";
+			productReference = D75B07F62F219EDE00C85EC5 /* Peepo Watch AppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D75B07FF2F219EDE00C85EC5 /* Peepo Watch AppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D75B08142F219EDE00C85EC5 /* Build configuration list for PBXNativeTarget "Peepo Watch AppUITests" */;
+			buildPhases = (
+				D75B07FC2F219EDE00C85EC5 /* Sources */,
+				D75B07FD2F219EDE00C85EC5 /* Frameworks */,
+				D75B07FE2F219EDE00C85EC5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D75B08022F219EDE00C85EC5 /* PBXTargetDependency */,
+			);
+			name = "Peepo Watch AppUITests";
+			productName = "Peepo Watch AppUITests";
+			productReference = D75B08002F219EDE00C85EC5 /* Peepo Watch AppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D75B07D82F219EDC00C85EC5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1530;
+				LastUpgradeCheck = 1530;
+				TargetAttributes = {
+					D75B07DD2F219EDC00C85EC5 = {
+						CreatedOnToolsVersion = 15.3;
+					};
+					D75B07E32F219EDC00C85EC5 = {
+						CreatedOnToolsVersion = 15.3;
+					};
+					D75B07F52F219EDE00C85EC5 = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = D75B07E32F219EDC00C85EC5;
+					};
+					D75B07FF2F219EDE00C85EC5 = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = D75B07E32F219EDC00C85EC5;
+					};
+				};
+			};
+			buildConfigurationList = D75B07DB2F219EDC00C85EC5 /* Build configuration list for PBXProject "Peepo" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D75B07D72F219EDC00C85EC5;
+			productRefGroup = D75B07DF2F219EDC00C85EC5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D75B07DD2F219EDC00C85EC5 /* Peepo */,
+				D75B07E32F219EDC00C85EC5 /* Peepo Watch App */,
+				D75B07F52F219EDE00C85EC5 /* Peepo Watch AppTests */,
+				D75B07FF2F219EDE00C85EC5 /* Peepo Watch AppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D75B07DC2F219EDC00C85EC5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D75B07E22F219EDC00C85EC5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D75B07F12F219EDE00C85EC5 /* Preview Assets.xcassets in Resources */,
+				D75B07EE2F219EDE00C85EC5 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D75B07F42F219EDE00C85EC5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D75B07FE2F219EDE00C85EC5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D75B07E02F219EDC00C85EC5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D75B07EC2F219EDC00C85EC5 /* ContentView.swift in Sources */,
+				D75B07EA2F219EDC00C85EC5 /* PeepoApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D75B07F22F219EDE00C85EC5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D75B07FB2F219EDE00C85EC5 /* Peepo_Watch_AppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D75B07FC2F219EDE00C85EC5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D75B08072F219EDE00C85EC5 /* Peepo_Watch_AppUITestsLaunchTests.swift in Sources */,
+				D75B08052F219EDE00C85EC5 /* Peepo_Watch_AppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D75B07E72F219EDC00C85EC5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D75B07E32F219EDC00C85EC5 /* Peepo Watch App */;
+			targetProxy = D75B07E62F219EDC00C85EC5 /* PBXContainerItemProxy */;
+		};
+		D75B07F82F219EDE00C85EC5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D75B07E32F219EDC00C85EC5 /* Peepo Watch App */;
+			targetProxy = D75B07F72F219EDE00C85EC5 /* PBXContainerItemProxy */;
+		};
+		D75B08022F219EDE00C85EC5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D75B07E32F219EDC00C85EC5 /* Peepo Watch App */;
+			targetProxy = D75B08012F219EDE00C85EC5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		D75B08082F219EDE00C85EC5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D75B08092F219EDE00C85EC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		D75B080B2F219EDE00C85EC5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Peepo Watch App/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Peepo;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKWatchOnly = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.datalocaltmp.Peepo.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.4;
+			};
+			name = Debug;
+		};
+		D75B080C2F219EDE00C85EC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Peepo Watch App/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Peepo;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKWatchOnly = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.datalocaltmp.Peepo.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 10.4;
+			};
+			name = Release;
+		};
+		D75B080F2F219EDE00C85EC5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				INFOPLIST_KEY_CFBundleDisplayName = Peepo;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.datalocaltmp.Peepo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		D75B08102F219EDE00C85EC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				INFOPLIST_KEY_CFBundleDisplayName = Peepo;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.datalocaltmp.Peepo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D75B08122F219EDE00C85EC5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.datalocaltmp.Peepo-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Peepo Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Peepo Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 10.4;
+			};
+			name = Debug;
+		};
+		D75B08132F219EDE00C85EC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.datalocaltmp.Peepo-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Peepo Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Peepo Watch App";
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 10.4;
+			};
+			name = Release;
+		};
+		D75B08152F219EDE00C85EC5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.datalocaltmp.Peepo-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "Peepo Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 10.4;
+			};
+			name = Debug;
+		};
+		D75B08162F219EDE00C85EC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.datalocaltmp.Peepo-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "Peepo Watch App";
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 10.4;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D75B07DB2F219EDC00C85EC5 /* Build configuration list for PBXProject "Peepo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D75B08082F219EDE00C85EC5 /* Debug */,
+				D75B08092F219EDE00C85EC5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D75B080A2F219EDE00C85EC5 /* Build configuration list for PBXNativeTarget "Peepo Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D75B080B2F219EDE00C85EC5 /* Debug */,
+				D75B080C2F219EDE00C85EC5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D75B080E2F219EDE00C85EC5 /* Build configuration list for PBXNativeTarget "Peepo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D75B080F2F219EDE00C85EC5 /* Debug */,
+				D75B08102F219EDE00C85EC5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D75B08112F219EDE00C85EC5 /* Build configuration list for PBXNativeTarget "Peepo Watch AppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D75B08122F219EDE00C85EC5 /* Debug */,
+				D75B08132F219EDE00C85EC5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D75B08142F219EDE00C85EC5 /* Build configuration list for PBXNativeTarget "Peepo Watch AppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D75B08152F219EDE00C85EC5 /* Debug */,
+				D75B08162F219EDE00C85EC5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D75B07D82F219EDC00C85EC5 /* Project object */;
+}
