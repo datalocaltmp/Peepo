@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D72335722F21BF0600188F7D /* kern_panic.c in Sources */ = {isa = PBXBuildFile; fileRef = D72335712F21BF0600188F7D /* kern_panic.c */; };
 		D75B07E52F219EDC00C85EC5 /* Peepo Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = D75B07E42F219EDC00C85EC5 /* Peepo Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D75B07EA2F219EDC00C85EC5 /* PeepoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75B07E92F219EDC00C85EC5 /* PeepoApp.swift */; };
 		D75B07EC2F219EDC00C85EC5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75B07EB2F219EDC00C85EC5 /* ContentView.swift */; };
@@ -15,6 +16,11 @@
 		D75B07FB2F219EDE00C85EC5 /* Peepo_Watch_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75B07FA2F219EDE00C85EC5 /* Peepo_Watch_AppTests.swift */; };
 		D75B08052F219EDE00C85EC5 /* Peepo_Watch_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75B08042F219EDE00C85EC5 /* Peepo_Watch_AppUITests.swift */; };
 		D75B08072F219EDE00C85EC5 /* Peepo_Watch_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75B08062F219EDE00C85EC5 /* Peepo_Watch_AppUITestsLaunchTests.swift */; };
+		D7826D8D2F247EA8002C443B /* syscall_fakes.c in Sources */ = {isa = PBXBuildFile; fileRef = D7826D8C2F247EA8002C443B /* syscall_fakes.c */; };
+		D7935E962F258E6900D8EE50 /* kern_exerciser.c in Sources */ = {isa = PBXBuildFile; fileRef = D7935E952F258E6900D8EE50 /* kern_exerciser.c */; };
+		D7975EB62F2512B4008EA00B /* ConsoleBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7975EB52F2512B4008EA00B /* ConsoleBuffer.swift */; };
+		D7AD8C4D2F2472BA00E4E47F /* ConsoleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AD8C4C2F2472BA00E4E47F /* ConsoleView.swift */; };
+		D7AD8C4F2F2472EB00E4E47F /* ConsoleBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AD8C4E2F2472EB00E4E47F /* ConsoleBridge.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +62,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D723356F2F21BF0500188F7D /* Peepo Watch App-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Peepo Watch App-Bridging-Header.h"; sourceTree = "<group>"; };
+		D72335702F21BF0600188F7D /* kern_panic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kern_panic.h; sourceTree = "<group>"; };
+		D72335712F21BF0600188F7D /* kern_panic.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = kern_panic.c; sourceTree = "<group>"; };
+		D756581B2F247B710007E04F /* libkfd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = libkfd.h; path = ../../../Development/kfd/kfd/libkfd.h; sourceTree = "<group>"; };
 		D75B07DE2F219EDC00C85EC5 /* Peepo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Peepo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D75B07E42F219EDC00C85EC5 /* Peepo Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Peepo Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D75B07E92F219EDC00C85EC5 /* PeepoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeepoApp.swift; sourceTree = "<group>"; };
@@ -67,6 +77,27 @@
 		D75B08002F219EDE00C85EC5 /* Peepo Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Peepo Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D75B08042F219EDE00C85EC5 /* Peepo_Watch_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Peepo_Watch_AppUITests.swift; sourceTree = "<group>"; };
 		D75B08062F219EDE00C85EC5 /* Peepo_Watch_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Peepo_Watch_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D7826D7D2F247C53002C443B /* info.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = info.h; sourceTree = "<group>"; };
+		D7826D7E2F247C53002C443B /* perf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = perf.h; sourceTree = "<group>"; };
+		D7826D7F2F247C53002C443B /* krkw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = krkw.h; sourceTree = "<group>"; };
+		D7826D802F247C53002C443B /* puaf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = puaf.h; sourceTree = "<group>"; };
+		D7826D812F247C7E002C443B /* static_info.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = static_info.h; sourceTree = "<group>"; };
+		D7826D822F247C7E002C443B /* dynamic_info.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dynamic_info.h; sourceTree = "<group>"; };
+		D7826D832F247DC5002C443B /* kread_kqueue_workloop_ctl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kread_kqueue_workloop_ctl.h; sourceTree = "<group>"; };
+		D7826D842F247DC5002C443B /* kread_sem_open.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kread_sem_open.h; sourceTree = "<group>"; };
+		D7826D852F247DCF002C443B /* kwrite_dup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kwrite_dup.h; sourceTree = "<group>"; };
+		D7826D862F247DCF002C443B /* kwrite_sem_open.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kwrite_sem_open.h; sourceTree = "<group>"; };
+		D7826D872F247DDA002C443B /* landa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = landa.h; sourceTree = "<group>"; };
+		D7826D882F247DDA002C443B /* physpuppet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = physpuppet.h; sourceTree = "<group>"; };
+		D7826D892F247DDA002C443B /* smith.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = smith.h; sourceTree = "<group>"; };
+		D7826D8A2F247E7A002C443B /* common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = "<group>"; };
+		D7826D8B2F247E97002C443B /* syscall_fakes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = syscall_fakes.h; sourceTree = "<group>"; };
+		D7826D8C2F247EA8002C443B /* syscall_fakes.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = syscall_fakes.c; sourceTree = "<group>"; };
+		D7935E942F258E6900D8EE50 /* kern_exerciser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kern_exerciser.h; sourceTree = "<group>"; };
+		D7935E952F258E6900D8EE50 /* kern_exerciser.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = kern_exerciser.c; sourceTree = "<group>"; };
+		D7975EB52F2512B4008EA00B /* ConsoleBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleBuffer.swift; sourceTree = "<group>"; };
+		D7AD8C4C2F2472BA00E4E47F /* ConsoleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleView.swift; sourceTree = "<group>"; };
+		D7AD8C4E2F2472EB00E4E47F /* ConsoleBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleBridge.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +125,70 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D75658152F247B540007E04F /* info */ = {
+			isa = PBXGroup;
+			children = (
+				D7826D822F247C7E002C443B /* dynamic_info.h */,
+				D7826D812F247C7E002C443B /* static_info.h */,
+			);
+			path = info;
+			sourceTree = "<group>";
+		};
+		D75658162F247B540007E04F /* kread */ = {
+			isa = PBXGroup;
+			children = (
+				D7826D832F247DC5002C443B /* kread_kqueue_workloop_ctl.h */,
+				D7826D842F247DC5002C443B /* kread_sem_open.h */,
+			);
+			path = kread;
+			sourceTree = "<group>";
+		};
+		D75658172F247B540007E04F /* kwrite */ = {
+			isa = PBXGroup;
+			children = (
+				D7826D852F247DCF002C443B /* kwrite_dup.h */,
+				D7826D862F247DCF002C443B /* kwrite_sem_open.h */,
+			);
+			path = kwrite;
+			sourceTree = "<group>";
+		};
+		D75658182F247B540007E04F /* krkw */ = {
+			isa = PBXGroup;
+			children = (
+				D75658162F247B540007E04F /* kread */,
+				D75658172F247B540007E04F /* kwrite */,
+			);
+			path = krkw;
+			sourceTree = "<group>";
+		};
+		D75658192F247B540007E04F /* puaf */ = {
+			isa = PBXGroup;
+			children = (
+				D7826D872F247DDA002C443B /* landa.h */,
+				D7826D882F247DDA002C443B /* physpuppet.h */,
+				D7826D892F247DDA002C443B /* smith.h */,
+			);
+			path = puaf;
+			sourceTree = "<group>";
+		};
+		D756581A2F247B540007E04F /* libkfd */ = {
+			isa = PBXGroup;
+			children = (
+				D7826D8A2F247E7A002C443B /* common.h */,
+				D7826D7D2F247C53002C443B /* info.h */,
+				D7826D7F2F247C53002C443B /* krkw.h */,
+				D7826D7E2F247C53002C443B /* perf.h */,
+				D7826D802F247C53002C443B /* puaf.h */,
+				D75658152F247B540007E04F /* info */,
+				D75658182F247B540007E04F /* krkw */,
+				D75658192F247B540007E04F /* puaf */,
+				D7826D8B2F247E97002C443B /* syscall_fakes.h */,
+				D7826D8C2F247EA8002C443B /* syscall_fakes.c */,
+			);
+			name = libkfd;
+			path = ../../../Development/kfd/kfd/libkfd;
+			sourceTree = "<group>";
+		};
 		D75B07D72F219EDC00C85EC5 = {
 			isa = PBXGroup;
 			children = (
@@ -118,10 +213,20 @@
 		D75B07E82F219EDC00C85EC5 /* Peepo Watch App */ = {
 			isa = PBXGroup;
 			children = (
+				D756581B2F247B710007E04F /* libkfd.h */,
+				D756581A2F247B540007E04F /* libkfd */,
 				D75B07E92F219EDC00C85EC5 /* PeepoApp.swift */,
 				D75B07EB2F219EDC00C85EC5 /* ContentView.swift */,
 				D75B07ED2F219EDE00C85EC5 /* Assets.xcassets */,
 				D75B07EF2F219EDE00C85EC5 /* Preview Content */,
+				D72335702F21BF0600188F7D /* kern_panic.h */,
+				D72335712F21BF0600188F7D /* kern_panic.c */,
+				D723356F2F21BF0500188F7D /* Peepo Watch App-Bridging-Header.h */,
+				D7AD8C4C2F2472BA00E4E47F /* ConsoleView.swift */,
+				D7AD8C4E2F2472EB00E4E47F /* ConsoleBridge.swift */,
+				D7975EB52F2512B4008EA00B /* ConsoleBuffer.swift */,
+				D7935E942F258E6900D8EE50 /* kern_exerciser.h */,
+				D7935E952F258E6900D8EE50 /* kern_exerciser.c */,
 			);
 			path = "Peepo Watch App";
 			sourceTree = "<group>";
@@ -239,6 +344,7 @@
 					};
 					D75B07E32F219EDC00C85EC5 = {
 						CreatedOnToolsVersion = 15.3;
+						LastSwiftMigration = 1530;
 					};
 					D75B07F52F219EDE00C85EC5 = {
 						CreatedOnToolsVersion = 15.3;
@@ -309,8 +415,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D72335722F21BF0600188F7D /* kern_panic.c in Sources */,
 				D75B07EC2F219EDC00C85EC5 /* ContentView.swift in Sources */,
+				D7935E962F258E6900D8EE50 /* kern_exerciser.c in Sources */,
+				D7826D8D2F247EA8002C443B /* syscall_fakes.c in Sources */,
+				D7AD8C4D2F2472BA00E4E47F /* ConsoleView.swift in Sources */,
+				D7975EB62F2512B4008EA00B /* ConsoleBuffer.swift in Sources */,
 				D75B07EA2F219EDC00C85EC5 /* PeepoApp.swift in Sources */,
+				D7AD8C4F2F2472EB00E4E47F /* ConsoleBridge.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,9 +583,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Peepo Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = HD25MJR34V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Peepo;
@@ -484,11 +598,15 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				NEW_SETTING = "";
+				"OTHER_LDFLAGS[arch=*]" = "-Wl,-v";
 				PRODUCT_BUNDLE_IDENTIFIER = com.datalocaltmp.Peepo.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Peepo Watch App/Peepo Watch App-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 10.4;
@@ -500,9 +618,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Peepo Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = HD25MJR34V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Peepo;
@@ -513,11 +633,14 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				NEW_SETTING = "";
+				"OTHER_LDFLAGS[arch=*]" = "-Wl,-v";
 				PRODUCT_BUNDLE_IDENTIFIER = com.datalocaltmp.Peepo.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Peepo Watch App/Peepo Watch App-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				VALIDATE_PRODUCT = YES;
@@ -531,6 +654,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HD25MJR34V;
 				INFOPLIST_KEY_CFBundleDisplayName = Peepo;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.datalocaltmp.Peepo;
@@ -546,6 +670,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HD25MJR34V;
 				INFOPLIST_KEY_CFBundleDisplayName = Peepo;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.datalocaltmp.Peepo;
