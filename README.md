@@ -6,8 +6,9 @@ Named after the children's book *Peepo!*. App artwork done by my niece H. McLare
 
 **⚠️ This currently only supports the Apple Watch Series 4 (Watch4,1 / T8006) on watchOS 10.6.1. Any other watch model or watchOS version will not work and will panic/reboot the device - the exploit and all offsets are hardcoded to this exact build. If you have a watch running 10.6.2 (the latest), get in touch - I'm working on getting another watch to build 10.6.2 support imminently.**
 
-Security-research project: a watchOS app (`Peepo Watch App`) that exploits a
-kernel bug to gain arbitrary kernel read/write on an **Apple Watch Series 4
+Security-research project: a watchOS app (`Peepo Watch App`) that exploits the
+[darksword](https://github.com/opa334/darksword-kexploit/tree/main) kernel bug
+to gain arbitrary kernel read/write on an **Apple Watch Series 4
 (Watch4,1 / T8006 / watchOS 10.6.1 / xnu-10063.144.1, arm64_32 userland)**, then
 uses that primitive to enumerate live processes and **dump another process's
 memory** to the app container - viewable on-watch or pullable to a host.
