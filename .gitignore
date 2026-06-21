@@ -1,0 +1,19 @@
+# Build output
+build/
+DerivedData/
+*.o
+*.dia
+
+# Personal / device artifacts (panic logs, captured dumps, console logs)
+crashes/
+*.ips
+*.bin
+*.log
+
+# Xcode user-specific state
+xcuserdata/
+*.xcuserstate
+*.xcscmblueprint
+
+# macOS
+.DS_Store

@@ -3,4 +3,4 @@
 //
 
 #include "kern_panic.h"
-#include "kern_exerciser.h"
+#include "darksword.h"
