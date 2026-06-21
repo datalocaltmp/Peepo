@@ -4,7 +4,7 @@
 
 Named after the children's book *Peepo!*. App artwork done by my niece H. McLaren.
 
-**⚠️ This currently only supports the Apple Watch Series 4 (Watch4,1 / T8006) on watchOS 10.6.1. Any other watch model or watchOS version will not work and will panic/reboot the device - the exploit and all offsets are hardcoded to this exact build.**
+**⚠️ This currently only supports the Apple Watch Series 4 (Watch4,1 / T8006) on watchOS 10.6.1. Any other watch model or watchOS version will not work and will panic/reboot the device - the exploit and all offsets are hardcoded to this exact build. If you have a watch running 10.6.2 (the latest), get in touch - I'm working on getting another watch to build 10.6.2 support imminently.**
 
 Security-research project: a watchOS app (`Peepo Watch App`) that exploits a
 kernel bug to gain arbitrary kernel read/write on an **Apple Watch Series 4
