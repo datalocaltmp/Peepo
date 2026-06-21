@@ -12,7 +12,9 @@ kernel bug to gain arbitrary kernel read/write on an **Apple Watch Series 4
 uses that primitive to enumerate live processes and **dump another process's
 memory** to the app container - viewable on-watch or pullable to a host.
 
-<!-- IMAGES: add screenshots here (home screen, WIN, process list, hex viewer). -->
+![Peepo / DATASWORD demo](datasword_demo.gif)
+
+<!-- IMAGES: add more screenshots here (home screen, WIN, process list, hex viewer). -->
 
 ---
 
