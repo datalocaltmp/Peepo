@@ -47,8 +47,7 @@ DATASWORD ──► darksword_run()  ──►  "=== WIN ==="  (kernel R/W + bas
 ```
 
 Confirmed working: full kernel R/W, ~276-process enumeration, and complete
-memory dumps of live processes (e.g. `LegacyProfilesSu` 237 MB,
-`MTLCompilerServi` 250 MB, `WhatsAppWatchApp` 256 MB+).
+memory dumps of live processes.
 
 ---
 
