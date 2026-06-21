@@ -16,7 +16,7 @@ struct OutlinedText: View {
 
     var body: some View {
         ZStack {
-            // Outline (4 directions – efficient for watchOS)
+            // Outline (4 directions - efficient for watchOS)
             Text(text).font(font).foregroundColor(outlineColor).offset(x:  outlineWidth, y:  0)
             Text(text).font(font).foregroundColor(outlineColor).offset(x: -outlineWidth, y:  0)
             Text(text).font(font).foregroundColor(outlineColor).offset(x:  0, y:  outlineWidth)
@@ -97,7 +97,7 @@ struct ContentView: View {
                                 installConsoleLogger()
                                 workoutManager.startBreathingWorkout()
                                 // darksword uses pthread_exit via FAILURE() so needs a real
-                                // pthread, not a GCD worker — pthread_exit on a GCD thread
+                                // pthread, not a GCD worker - pthread_exit on a GCD thread
                                 // corrupts the thread pool and breaks UI event handling
                                 Thread.detachNewThread { darksword_run() }
                             }

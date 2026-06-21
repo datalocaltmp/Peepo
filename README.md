@@ -1,21 +1,16 @@
-# Peepo — watchOS Kernel R/W + Process Memory Dumping
+# Peepo - watchOS Kernel R/W + Process Memory Dumping
 
 > *Here's a little baby - One, two, three - Sits in her high chair - What does she see? PEEPO!*
 
 Named after the children's book *Peepo!*. App artwork done by my niece H. McLaren.
 
-**⚠️ This currently only supports the Apple Watch Series 4 (Watch4,1 / T8006) on watchOS 10.6.1. Any other watch model or watchOS version will not work and will panic/reboot the device — the exploit and all offsets are hardcoded to this exact build.**
+**⚠️ This currently only supports the Apple Watch Series 4 (Watch4,1 / T8006) on watchOS 10.6.1. Any other watch model or watchOS version will not work and will panic/reboot the device - the exploit and all offsets are hardcoded to this exact build.**
 
 Security-research project: a watchOS app (`Peepo Watch App`) that exploits a
 kernel bug to gain arbitrary kernel read/write on an **Apple Watch Series 4
 (Watch4,1 / T8006 / watchOS 10.6.1 / xnu-10063.144.1, arm64_32 userland)**, then
 uses that primitive to enumerate live processes and **dump another process's
-memory** to the app container — viewable on-watch or pullable to a host.
-
-The exploit is named **darksword** and is driven from the `DATASWORD` button.
-All work is on a developer-signed app running on the author's own device.
-
-> Authorized security research on the author's own hardware.
+memory** to the app container - viewable on-watch or pullable to a host.
 
 <!-- IMAGES: add screenshots here (home screen, WIN, process list, hex viewer). -->
 
@@ -64,7 +59,7 @@ memory dumps of live processes (e.g. `LegacyProfilesSu` 237 MB,
 > your S4 isn't already on 10.6.1, this is a read-only writeup for you.
 
 ### 0. Check compatibility first
-On the watch: **Settings → General → About** — confirm **Model = Watch4,1** (or
+On the watch: **Settings → General → About** - confirm **Model = Watch4,1** (or
 "Series 4") and **watchOS Version = 10.6.1**. If either differs, stop here.
 
 ### 1. Prerequisites
@@ -76,13 +71,13 @@ On the watch: **Settings → General → About** — confirm **Model = Watch4,1*
   Xcode for development.
 
 ### 2. Make it yours
-The committed project is intentionally **teamless** — set signing to your own
+The committed project is intentionally **teamless** - set signing to your own
 account. Open `Peepo.xcodeproj` in Xcode and, for **both** the app and the Watch
 App target (Signing & Capabilities):
-1. **Signing Team** — select your team; let Xcode manage signing automatically.
-2. **Bundle identifier** — change `com.datalocaltmp.Peepo*` to your own if Xcode
+1. **Signing Team** - select your team; let Xcode manage signing automatically.
+2. **Bundle identifier** - change `com.datalocaltmp.Peepo*` to your own if Xcode
    can't register the existing one under your team (e.g. `com.<you>.Peepo`).
-3. **HealthKit (Workout Processing)** — leave this capability enabled. The app
+3. **HealthKit (Workout Processing)** - leave this capability enabled. The app
    starts a HealthKit workout session purely to stay alive (avoid suspension)
    during the run, and `WKBackgroundModes = workout-processing` depends on it.
 
@@ -95,10 +90,10 @@ Use it wherever the docs say `DEV=…` (the repo's value is a placeholder).
 ### 3. Signing & account notes
 - **A free account is enough.** A free "Personal Team" (just an Apple ID added in
   Xcode → Settings → Accounts) can sign and run this on your own watch, HealthKit
-  included — this project was built/run on one.
+  included - this project was built/run on one.
 - **If signing fails on the HealthKit entitlement** (rare, account-dependent): as
   a fallback you can strip `WorkoutManager`, the `com.apple.developer.healthkit`
-  entitlement, and the `workout-processing` background mode — the app then runs
+  entitlement, and the `workout-processing` background mode - the app then runs
   without HealthKit but may get suspended mid-run.
 - **Find your Team ID** (for the CLI `DEVELOPMENT_TEAM=…`): Xcode → Settings →
   Accounts → your team → 10-char ID, or run `security find-identity -v`.
@@ -109,7 +104,7 @@ See [Build & deploy](#build--deploy) for exact commands. In short: build,
 
 ### 5. Expect reboots
 The R/W primitive is one-shot per launch, and **force-quitting or reinstalling
-the app usually panics + reboots the watch** — that's normal here; it recovers.
+the app usually panics + reboots the watch** - that's normal here; it recovers.
 Dumping an incompatible page also panics. None of this is persistent.
 
 ---
@@ -117,15 +112,15 @@ Dumping an incompatible page also panics. None of this is persistent.
 ## On-watch UI
 
 **Home screen**
-- **DATASWORD** — runs the exploit; streams a live console; ends at `=== WIN ===`.
-- **📄 list dumps** — lists every `*.bin` dump in the app container with sizes.
-- **🗑 delete dumps** — deletes all `*.bin` files to free space (incl. `kc.bin`).
+- **DATASWORD** - runs the exploit; streams a live console; ends at `=== WIN ===`.
+- **📄 list dumps** - lists every `*.bin` dump in the app container with sizes.
+- **🗑 delete dumps** - deletes all `*.bin` files to free space (incl. `kc.bin`).
 
 **After WIN (PROCESS DUMP screen)**
 - Console of the exploit log, with a floating **PROCESS DUMP** button.
 - Tapping it opens the **process list** (name-only rows). Tap a process to dump
   it → `<name>_<pid>.bin` in the app's `Documents/`.
-- After a dump, **VIEW HEX ▸** appears — an on-watch xxd view
+- After a dump, **VIEW HEX ▸** appears - an on-watch xxd view
   (`offset · hex · ASCII`, first 64 KB) with an **✕** to close. No host needed.
 
 ---
@@ -162,7 +157,7 @@ dumpdbg.log                10 KB      ...   # only present when DUMP_DEBUG=1
 
 > ⚠️ **This listing times out while the app is actively running** (darksword
 > holds kernel R/W and starves the file service over the tunnel). Run it when the
-> app is **not** running — e.g. right after a reboot, or before relaunching.
+> app is **not** running - e.g. right after a reboot, or before relaunching.
 > *Single-file copies (below) work even while the app runs.*
 
 ### 2. Pull a file
@@ -244,7 +239,7 @@ viewable directly via **VIEW HEX** without pulling anything.
 
 ## How it works
 
-### 1. darksword — kernel R/W
+### 1. darksword - kernel R/W
 
 A physical-use-after-free (PUAF) attack that races `pwritev()`'s copy against a
 `mach_vm_map(… OVERWRITE …)` page remap.
@@ -265,7 +260,7 @@ A physical-use-after-free (PUAF) attack that races `pwritev()`'s copy against a
 
 **Base + slide:** `controlSocketPcb → socket → so_proto → pr_input` leaks a
 PAC-signed kernel text pointer. The watch's `__xpaci` is a no-op, so strip
-explicitly — **the PAC sits in the top 32 bits**, real text is the low 32:
+explicitly - **the PAC sits in the top 32 bits**, real text is the low 32:
 `textPtr = (raw & 0xffffffff) | (protoPtr & 0xffffffff00000000)`. Scan down 16 KB
 pages for the `MH_FILESET` mach header → `kernel_base`;
 `kernel_slide = kernel_base - 0xfffffff007004000`.
@@ -277,7 +272,7 @@ the inspection code after the run.
 
 Userland enumeration is sandbox-blocked, so we walk the kernel proc list.
 
-The anchor is obtained offset-free via **`leak_current_proc()`**: spray ~10–20k
+The anchor is obtained offset-free via **`leak_current_proc()`**: spray ~10-20k
 `kqueue()` fds (each `kqfile` stores `kq_p = current_proc`), read the reclaimed
 pages back through the physical-read race **while `free_thread` is alive**, and
 take the kernel pointer that *repeats* across the page. From `current_proc`, walk
@@ -297,10 +292,10 @@ at runtime by searching the struct for our own executable name.
 - **Physmap slide is global**: derived from *our own* validated process's pmap
   (`physmap_off = tte - ttep`), not the target's (a target's `ttep` can be
   inconsistent). `physmap_kva = pa + physmap_off`.
-- **PAC strip** forces bit 39: `(v & 0x7fffffffff) | 0xffffff8000000000` — the
+- **PAC strip** forces bit 39: `(v & 0x7fffffffff) | 0xffffff8000000000` - the
   central bug that, when missing, mangled every signed pointer.
 
-**The carveout gate.** `early_kread` is fault-unsafe — reading a physical page
+**The carveout gate.** `early_kread` is fault-unsafe - reading a physical page
 not covered by the physmap **panics** (reboots the watch). Live traces showed the
 low DRAM carveout (iBoot/SEP/TZ, `0x8_00000000 .. gPhysBase`) is *not* in the
 physmap: pages at `0x801…`/`0x802…` panic, while `gPhysBase ≤ 0x8_06e68cc0` reads
@@ -310,7 +305,7 @@ kernel's exact `gPhysBase`/`gPhysSize` to close the small gap below the gate.)
 
 Panicking runs are diagnosable only with `DUMP_DEBUG=1`, which mirrors every step
 to `dumpdbg.log` using `F_FULLFSYNC` (plain `fsync` does **not** survive a kernel
-panic on this device — the FS cache is effectively volatile across a panic).
+panic on this device - the FS cache is effectively volatile across a panic).
 
 ---
 
@@ -362,7 +357,7 @@ Conventions / gotchas:
   so the running build is visually confirmable on-watch.
 - **Force-quit Peepo before reinstalling.** While the app runs it holds kernel
   R/W; `install` then times out (`NSPOSIXErrorDomain 60` / `IXRemoteErrorDomain
-  6`). Force-quitting (or any reinstall) usually **panics + reboots** the watch —
+  6`). Force-quitting (or any reinstall) usually **panics + reboots** the watch -
   that's expected; it recovers.
 - The R/W primitive is one-shot per app launch (no persistence).
 - `DUMP_DEBUG` (in `darksword.m`) defaults to `0` (lean dumps). Set to `1` to get
@@ -373,11 +368,11 @@ Conventions / gotchas:
 | Symptom | Cause / fix |
 |---|---|
 | `Signing for "…" requires a development team` | No team set. Pick yours in Xcode → Signing & Capabilities, or pass `DEVELOPMENT_TEAM=<id>` to `xcodebuild`. |
-| Build fails on the **HealthKit** entitlement | Rare/account-dependent — see the fallback (strip HealthKit) in *Signing & account notes*. |
+| Build fails on the **HealthKit** entitlement | Rare/account-dependent - see the fallback (strip HealthKit) in *Signing & account notes*. |
 | `install` times out (`NSPOSIXErrorDomain 60` / `IXRemoteErrorDomain 6`) | The app is running and holding kernel R/W. **Force-quit Peepo** on the watch, then reinstall. |
 | Watch **panics/reboots** on launch or on a dump | Almost always the wrong device/OS (must be Watch4,1 @ 10.6.1), or a dump hit memory outside the readable physmap. Expected; it recovers. |
 | `devicectl device info files` (listing dumps) times out | The app is running. List **after a reboot / before relaunching**; single-file `copy from` still works while running. |
-| App quietly dies mid-run | Workout session didn't keep it alive — confirm the HealthKit/Workout capability is enabled and granted. |
+| App quietly dies mid-run | Workout session didn't keep it alive - confirm the HealthKit/Workout capability is enabled and granted. |
 
 ---
 
@@ -396,7 +391,7 @@ Conventions / gotchas:
 
 ## Credits & shout-outs
 
-- **opa334** and **htimesnine** — for the *darksword* kernel n-day this project
+- **opa334** and **htimesnine** - for the *darksword* kernel n-day this project
   is built on. None of this exists without their work.
-- **tihmstar** — for [jelbrekTime](https://github.com/tihmstar/jelbrekTime), the
+- **tihmstar** - for [jelbrekTime](https://github.com/tihmstar/jelbrekTime), the
   Apple Watch Series 3 jailbreak, and a great reference for watchOS exploitation.
