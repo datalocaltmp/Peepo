@@ -4,12 +4,12 @@
 
 Named after the children's book *Peepo!*. App artwork done by my niece H. McLaren.
 
-**⚠️ This currently only supports the Apple Watch Series 4 (Watch4,1 / T8006) on watchOS 10.6.1. Any other watch model or watchOS version will not work and will panic/reboot the device - the exploit and all offsets are hardcoded to this exact build. If you have a watch running 10.6.2 (the latest), I'm working on getting another watch to build 10.6.2 support imminently.**
+**⚠️ Read [Compatibility](#compatibility) before running.** Confirmed on the **Apple Watch Series 4** (Watch4,1) on watchOS **10.6.1 and 10.6.2** (the latest); the **Series 5** and **SE 1st gen** share the same T8006 kernel and should work too. On any **unsupported model or watchOS version it will panic/reboot the device** - the exploit and offsets are hardcoded to the `xnu-10063.144.1` kernel build, so confirm yours is in the matrix first.
 
 Peepo exploits the
 [darksword](https://github.com/opa334/darksword-kexploit/tree/main) kernel bug
 to gain arbitrary kernel read/write on an **Apple Watch Series 4
-(Watch4,1 / T8006 / watchOS 10.6.1 / xnu-10063.144.1, arm64_32 userland)**, then
+(Watch4,1 / T8006 / watchOS 10.6.1 or 10.6.2 / xnu-10063.144.1, arm64_32 userland)**, then
 uses that primitive to enumerate live processes and **dump another process's
 memory** to the app container - viewable on-watch or pullable to a host.
 
@@ -20,6 +20,7 @@ memory** to the app container - viewable on-watch or pullable to a host.
 ---
 
 ## Table of contents
+- [Compatibility](#compatibility)
 - [What it does](#what-it-does)
 - [Setup (run it on your own watch)](#setup-run-it-on-your-own-watch)
 - [On-watch UI](#on-watch-ui)
@@ -29,6 +30,31 @@ memory** to the app container - viewable on-watch or pullable to a host.
 - [Key offsets & constants](#key-offsets--constants)
 - [Build & deploy](#build--deploy)
 - [Source map](#source-map)
+
+---
+
+## Compatibility
+
+Support is tied to the **T8006 kernel build** (`xnu-10063.144.1`, kernel UUID
+`00DD9EAB-9ABB-345E-B9AA-3E1F40538764`), not the device alone. watchOS 10.6.1 and
+10.6.2 ship that byte-identical kernel, and 10.6.2 is the **final** watchOS for
+every device below - so a fully-updated supported watch is covered.
+
+| Device | SoC | watchOS | Status |
+|---|---|---|---|
+| **Series 4** (Watch4,1) | T8006 | 10.6.1 | ✅ **Confirmed** on-device - primary target |
+| **Series 4** (Watch4,1) | T8006 | 10.6.2 | ✅ **Confirmed** on-device |
+| **Series 5** (Watch5,1-5,4) | T8006 | 10.6.1 / 10.6.2 | 🟡 Should work - same kernel build & struct offsets (untested on hardware) |
+| **SE 1st gen** (Watch5,9-5,12) | T8006 | 10.6.1 / 10.6.2 | 🟡 Should work - ships the *identical* kernelcache to Series 5 (untested on hardware) |
+
+**Why Series 5 / SE 1st gen should work:** all three are the same T8006 chip. The
+Series 5 and SE-1st-gen kernelcaches are byte-identical to each other, and their
+kernel is the same *build* as Series 4 (identical UUID ⇒ identical struct offsets)
+- just relocated into a different kernelcache, which doesn't change the offsets
+Peepo hardcodes. The one unverified risk on those models is the dumper's hardcoded
+readable-physmap window (depends on the device's physical DRAM layout); the kernel
+R/W exploit and process enumeration should be unaffected. **SE 2nd gen is a
+different SoC (S8/T8301) and will not work** - don't confuse the two.
 
 ---
 
@@ -54,15 +80,19 @@ memory dumps of live processes.
 
 ## Setup (run it on your own watch)
 
-> **This only runs on an Apple Watch Series 4 (Watch4,1 / T8006) on watchOS
-> 10.6.1.** On any other model or OS version the exploit's hardcoded offsets are
-> wrong and it will **panic and reboot** the watch rather than fail cleanly.
-> There is no downgrade path (watchOS is OTA-only, out of signing window), so if
-> your S4 isn't already on 10.6.1, this is a read-only writeup for you.
+> **This targets the T8006 watches (Series 4 confirmed; Series 5 / SE 1st gen
+> expected) on watchOS 10.6.1 or 10.6.2** - see [Compatibility](#compatibility) for
+> the matrix and confidence levels. Both builds ship the identical kernel, so the
+> offsets work on either. On an unsupported model or OS version the hardcoded
+> offsets are wrong and it will **panic and reboot** rather than fail cleanly.
+> watchOS is OTA-only, but since 10.6.2 is the latest and works, a supported watch
+> on an older build can simply **update to 10.6.2**.
 
 ### 0. Check compatibility first
-On the watch: **Settings → General → About** - confirm **Model = Watch4,1** (or
-"Series 4") and **watchOS Version = 10.6.1**. If either differs, stop here.
+On the watch: **Settings → General → About** - confirm your **Model** is in the
+[Compatibility](#compatibility) matrix (Watch4,1 is confirmed; Watch5,x is
+expected) and **watchOS Version = 10.6.1 or 10.6.2**. If the model isn't listed,
+stop here; if you're on an older watchOS, update to 10.6.2 first.
 
 ### 1. Prerequisites
 - A **Mac with Xcode** (the watchOS SDK + `devicectl`).
@@ -311,7 +341,7 @@ panic on this device - the FS cache is effectively volatile across a panic).
 
 ---
 
-## Key offsets & constants (watchOS 10.6.1 / T8006)
+## Key offsets & constants (watchOS 10.6.1 / 10.6.2 / T8006)
 
 | Thing | Value | Notes |
 |---|---|---|
@@ -372,7 +402,7 @@ Conventions / gotchas:
 | `Signing for "…" requires a development team` | No team set. Pick yours in Xcode → Signing & Capabilities, or pass `DEVELOPMENT_TEAM=<id>` to `xcodebuild`. |
 | Build fails on the **HealthKit** entitlement | Rare/account-dependent - see the fallback (strip HealthKit) in *Signing & account notes*. |
 | `install` times out (`NSPOSIXErrorDomain 60` / `IXRemoteErrorDomain 6`) | The app is running and holding kernel R/W. **Force-quit Peepo** on the watch, then reinstall. |
-| Watch **panics/reboots** on launch or on a dump | Almost always the wrong device/OS (must be Watch4,1 @ 10.6.1), or a dump hit memory outside the readable physmap. Expected; it recovers. |
+| Watch **panics/reboots** on launch or on a dump | Almost always the wrong device/OS (must be a T8006 watch @ 10.6.1 or 10.6.2 - see [Compatibility](#compatibility)), or a dump hit memory outside the readable physmap. Expected; it recovers. |
 | `devicectl device info files` (listing dumps) times out | The app is running. List **after a reboot / before relaunching**; single-file `copy from` still works while running. |
 | App quietly dies mid-run | Workout session didn't keep it alive - confirm the HealthKit/Workout capability is enabled and granted. |
 
